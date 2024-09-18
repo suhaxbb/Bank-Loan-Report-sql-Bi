@@ -1,4 +1,4 @@
-# Bank Loan Report sql Bi
+# Bank Loan Report Dashboard
 
 # Overview
 This project involves creating a comprehensive Bank Loan Report Dashboard using SQL to query the loan data and Power BI for visualization.
@@ -14,16 +14,16 @@ Power BI: Connected the SQL database to Power BI, and used various visualization
 DAX Formulas: Used DAX to calculate KPIs such as monthly loan performance, average interest rates, and debt-to-income (DTI) ratios.
 Key Features
 
-# Loan Performance Breakdown:
+# Loan Performance Breakdown
 Analyzed loans by term (36 vs 60 months), state, purpose (e.g., debt consolidation, home improvement), and employee length.
 
-# Dynamic Filters:
+# Dynamic Filters
 Filters by grade, purpose, and homeownership (e.g., rent vs mortgage) to customize analysis.
 
-# Monthly and Yearly Comparisons:
+# Monthly and Yearly Comparisons
 Month-over-month and year-over-year tracking, including metrics like loan applications, funded amounts, and interest rates.
 
-# Good vs Bad Loans:
+# Good vs Bad Loans
 Highlighted loan health by classifying loans into good (fully paid or current) and bad (charged off) categories, calculating their financial impact.
 
 # SQL Queries
