@@ -1,103 +1,103 @@
-# Bank Loan Report Dashboard
+# 💼 Bank Loan Report Dashboard
 
-# Overview
-This project involves creating a comprehensive Bank Loan Report Dashboard using SQL to query the loan data and Power BI for visualization.
+## 📝 Overview
 
-The dashboard provides insights into loan applications, funded amounts, interest rates, and loan statuses, offering both high-level overviews and granular breakdowns of loan performance.
+This project involves creating a **comprehensive Bank Loan Report Dashboard** using **SQL** to query loan data and **Power BI** for visualization. The dashboard provides valuable insights into:
 
-# Project Structure
+- Loan applications
+- Funded amounts
+- Interest rates
+- Loan statuses
 
-SQL Queries: Queries were used to extract and transform data from the financial loan database.
+It offers both high-level overviews and granular breakdowns of loan performance, allowing stakeholders to assess loan health, track key metrics, and make informed decisions.
 
-Power BI: Connected the SQL database to Power BI, and used various visualizations to analyze the data.
+## 🛠️ Project Structure
 
-DAX Formulas: Used DAX to calculate KPIs such as monthly loan performance, average interest rates, and debt-to-income (DTI) ratios.
-Key Features
+1. **SQL Queries**: SQL queries were used to extract and transform data from the financial loan database.
+2. **Power BI**: The SQL database was connected to Power BI to create insightful visualizations.
+3. **DAX Formulas**: DAX formulas were applied to calculate KPIs such as monthly loan performance, average interest rates, and debt-to-income ratios.
 
-# Loan Performance Breakdown
-Analyzed loans by term (36 vs 60 months), state, purpose (e.g., debt consolidation, home improvement), and employee length.
+## 🌟 Key Features
 
-# Dynamic Filters
-Filters by grade, purpose, and homeownership (e.g., rent vs mortgage) to customize analysis.
+- **Loan Performance Breakdown**: Analyze loans by term (36 vs. 60 months), state, purpose (e.g., debt consolidation, home improvement), and employee length.
+  
+- **Dynamic Filters**: Filters by grade, purpose, and homeownership (e.g., rent vs mortgage) to customize the analysis.
 
-# Monthly and Yearly Comparisons
-Month-over-month and year-over-year tracking, including metrics like loan applications, funded amounts, and interest rates.
+- **Monthly and Yearly Comparisons**: Month-over-month and year-over-year tracking of metrics such as loan applications, funded amounts, and interest rates.
 
-# Good vs Bad Loans
-Highlighted loan health by classifying loans into good (fully paid or current) and bad (charged off) categories, calculating their financial impact.
+- **Good vs. Bad Loans**: Classify loans into good (fully paid or current) vs. bad (charged off) categories, and calculate their financial impact.
 
-# SQL Queries
+## 🖥️ SQL Queries
 
 The following SQL queries were used to extract the relevant data:
 
-Total Loan Applications:
-SELECT COUNT(id) AS total_loan_applications FROM financial_loan;
+- **Total Loan Applications**:
+    ```sql
+    SELECT COUNT(id) AS total_loan_applications FROM financial_loan;
+    ```
 
-Funded Amounts:
-SELECT SUM(loan_amount) AS Total_Funded_Amount FROM financial_loan;
+- **Funded Amounts**:
+    ```sql
+    SELECT SUM(loan_amount) AS Total_Funded_Amount FROM financial_loan;
+    ```
 
-Interest Rates:
-SELECT AVG(int_rate) * 100 AS Avg_Interest_Rate FROM financial_loan;
+- **Interest Rates**:
+    ```sql
+    SELECT AVG(int_rate) * 100 AS Avg_Interest_Rate FROM financial_loan;
+    ```
 
-Good Loan Percentage:
-SELECT 
-(COUNT(CASE WHEN loan_status = 'Fully Paid' OR loan_status = 'Current' THEN id END) * 100) / 
-COUNT(id) AS Good_Loan_Percentage 
-FROM financial_loan;
+- **Good Loan Percentage**:
+    ```sql
+    SELECT (COUNT(CASE WHEN loan_status = 'Fully Paid' OR loan_status = 'Current' THEN id END) * 100) / COUNT(id) AS Good_Loan_Percentage FROM financial_loan;
+    ```
 
-# DAX Formulas
+## 📊 DAX Formulas
 
-Key metrics were calculated using DAX formulas in Power BI:
+Key metrics were calculated using DAX in Power BI:
 
-Total Funded Amount (DAX):
-Total Funded Amount = SUM(financial_loan[loan_amount])
+- **Total Funded Amount (DAX)**:
+    ```DAX
+    Total Funded Amount = SUM(financial_loan[loan_amount])
+    ```
 
-Good Loan Applications (DAX):
-Good Loan Applications = CALCULATE(COUNT(financial_loan[id]), 
-financial_loan[loan_status] = "Fully Paid" || financial_loan[loan_status] = "Current")
+- **Good Loan Applications (DAX)**:
+    ```DAX
+    Good Loan Applications = CALCULATE(COUNT(financial_loan[id]), financial_loan[loan_status] = "Fully Paid" || financial_loan[loan_status] = "Current")
+    ```
 
-Average Interest Rate (DAX):
-Avg Interest Rate = AVERAGE(financial_loan[int_rate]) * 100
+- **Average Interest Rate (DAX)**:
+    ```DAX
+    Avg Interest Rate = AVERAGE(financial_loan[int_rate]) * 100
+    ```
 
+## 📈 Key Visualizations
 
-# Key Visualizations
+The dashboard includes a variety of visualizations to provide actionable insights:
 
-The dashboard includes a variety of visualizations designed to provide actionable insights:
+- **KPI Cards**: Highlight key metrics such as total loan applications, funded amounts, and interest rates.
+- **Bar Charts**: Display loans by categories like term, employee length, and purpose.
+- **Line Graphs**: Show monthly and yearly trends for loan applications and funded amounts.
+- **Pie Charts**: Visualize the distribution of good vs. bad loans and their financial impact.
+- **Filters**: Allow dynamic analysis by filtering data based on grade, state, loan purpose, and homeownership.
 
-KPI Cards: Highlight total loan applications, funded amounts, and other key metrics.
+## 🚀 How to Run the Project
 
-Bar Charts: Break down loans by categories such as loan term, employee length, and purpose.
+### 1. Database Setup:
+Ensure the financial loan data is stored in a relational database, then run the SQL queries provided to extract the necessary data.
 
-Line Graphs: Show trends in monthly and yearly loan applications and funded amounts.
+### 2. Power BI Setup:
+- **Connect Power BI** to the SQL database.
+- Use the extracted data to create visualizations such as bar charts, line graphs, and KPIs.
+- Apply the DAX formulas to calculate key metrics.
 
-Pie Charts: Display the distribution of good vs. bad loans and their respective financial impacts.
+### 3. Visualization:
+- Add **dynamic filters** to the dashboard for a detailed analysis (e.g., by loan purpose, term, or grade).
+- Generate insights and create visual reports on loan performance, good vs. bad loans, and other financial metrics.
 
-Filters: Enable dynamic analysis with filters based on grade, state, loan purpose, and homeownership.
+## 📌 Conclusion
 
+The Bank Loan Report Dashboard provides valuable insights into bank loan data, serving as a powerful tool for analyzing trends, performance metrics, and risk factors in loan portfolios. With this dashboard, stakeholders can make data-driven decisions to improve loan performance and reduce risk.
 
-# How to Run the Project
-
-Database Setup:
-
-Ensure that the financial loan data is stored in a relational database.
-Run the SQL queries provided to extract the necessary data.
-
-Power BI Setup:
-
-Connect Power BI to the SQL database.
-
-Use the extracted data to create visualizations such as bar charts, line graphs, and KPIs.
-Apply the provided DAX formulas to calculate key metrics.
-
-Visualization:
-
-Add dynamic filters to the dashboard for more detailed analysis (e.g., by loan purpose, term, or grade).
-Generate insights and visual reports on loan performance, bad vs good loans, and financial metrics.
-
-# Conclusion
-
-This dashboard provides valuable insights into bank loan data and serves as a powerful tool for analyzing trends, performance metrics, and risk factors in loan portfolios.
-
-
+---
 
 
